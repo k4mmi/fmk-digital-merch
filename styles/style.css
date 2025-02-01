@@ -1,0 +1,246 @@
+/******************** VARIABLES ********************/
+
+:root{
+    --black: #000;
+    --transBlack: #000a;
+    --white: #fff;
+    --transWhite: #fffa;
+    --specialColor: #E73937;
+    --fontMain: Baskervvile, serif;
+    --spaceBig: 100px;
+    --spaceMedium: 50px;
+    --spaceSmall: 25px;
+    --spaceSmaller: 10px;
+    --spaceSmallest: 5px;
+    --borderWidth: 5px;
+    --corner-radius: 50px;
+    --animation-duration: 200ms;
+    --animation-duration-long: 600ms;
+    --animation-duration-longer: 1000ms;
+}
+
+/******************** FONTS ********************/
+
+/* Source Code Pro */
+@font-face {
+    font-family: Baskervvile;
+    src: url(../assets/fonts/baskervville/Baskervville-Regular.ttf);
+}
+
+/******************** RESET AND DEFAULTS ********************/
+
+* {
+    /* Reset */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+    vertical-align: baseline;
+    font-weight: normal;
+    background: none;
+
+    /* Default stuff */
+    font-family: var(--fontMain);
+    color: var(--white);
+    scrollbar-width: thin;
+    scrollbar-color: var(--specialColor) var(--black);
+    z-index: 1;
+
+    /* Disable scroll */
+    overflow: hidden;
+}
+
+html, body {
+    background: var(--black);
+    height: 100%;
+}
+
+.container {
+    display: flex;    
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+::selection {
+    color: var(--black);
+    background: var(--specialColor);
+}
+
+/******************** TEXT ********************/
+
+h1 {
+    text-align: center;
+    font-size: 92px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: var(--animation-duration);
+}
+
+a {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.source-code {
+    text-align: center;
+}
+
+.play-btn span{
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--black);
+}
+
+/******************** WEB ********************/
+
+/********** CONTAINER **********/
+
+.container-fmk {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+    height: min-content;
+    align-items: center;
+    padding: 0 var(--spaceSmall);
+    margin-bottom: var(--spaceSmall);
+}
+
+.container-fmk .game-flower {
+    width: calc(100% / 3);
+    transform: scale(0.5);
+    height: calc(100% / 3);
+    cursor: pointer;
+}
+
+.container-fmk .game-flower {
+    animation: flowers;
+    animation-duration: 500ms;
+    animation-timing-function: steps(4);
+    animation-fill-mode: forwards;
+}
+
+.container-fmk .game-flower:nth-child(odd) {
+    animation-delay: 500ms;
+}
+
+.container-fmk .game-flower img:hover {
+    transform: scale(0.95);
+}
+
+@keyframes flowers {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/********** CONTAINER **********/
+
+.container-menu-fmk {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-menu-fmk .menu {
+    width: calc(100vw - var(--spaceSmaller) * 2);
+    max-width: 800px;
+    height: calc(100vw - var(--spaceSmaller) * 2);
+    max-height: 800px;
+    position: relative;
+    margin-bottom: var(--spaceSmall);
+}
+
+.menu-content {
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    border-radius: var(--corner-radius);
+    background: var(--transBlack);
+    backdrop-filter: blur(10px);
+    top: 0;
+    width: 100%;
+    border: solid var(--white) var(--borderWidth);
+    animation-name: menu;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: steps(12);
+}
+
+@keyframes menu {
+    0% {
+        transform: perspective(500px) translateY(-2000px) translateZ(-500px);
+        /* opacity: 0.5; */
+    }
+    50% {
+        transform: perspective(500px) translateY(0px) translateZ(-500px);
+        /* opacity: 0.5; */
+    }
+    100% {
+        transform: translateZ(0px);
+        /* opacity: 1; */
+    }
+}
+
+.container-menu-fmk .menu-text {
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-menu-fmk .menu-btn {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-menu-fmk .menu-btn button {
+    cursor: pointer;
+    background: var(--white);
+    height: 100%;
+    width: 100%;
+}
+
+.container-menu-fmk .menu-btn button:active {
+    background: linear-gradient(var(--transWhite) ,var(--white));
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 12vw;
+    }
+}
