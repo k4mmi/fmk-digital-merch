@@ -240,7 +240,21 @@ a {
 }
 
 @media screen and (max-width: 800px) {
+
     h1 {
-        font-size: 12vw;
+        font-size: 16vw;
     }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .menu-text a {
+        font-size: 16px;
+    }
+
+    .play-btn span {
+        font-size: 8vw;
+    }
+    
 }
