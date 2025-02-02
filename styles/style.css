@@ -50,7 +50,7 @@
     z-index: 1;
 
     /* Disable scroll */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 html, body {
@@ -111,6 +111,44 @@ a {
 /******************** WEB ********************/
 
 /********** CONTAINER **********/
+
+/***** Index *****/
+
+.container-index {
+    margin: 10vh auto 0 auto;
+}
+
+.container-index ul{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: var(--spaceSmall);
+    flex-wrap: wrap;
+}
+
+.container-index .btn{
+    text-decoration: none;
+    padding: 20px;
+    max-width: 300px;
+    display: flex;
+    border-radius: var(--corner-radius);
+    color: var(--black);
+    border: solid var(--borderWidth) var(--white);
+}
+
+.container-index .btn:hover{
+    transform: scale(1.1);
+}
+
+.container-index img{
+    height: 100px;
+}
+
+.container-index h1 {
+    margin-bottom: 20px
+}
+
+/***** FMK *****/
 
 .container-fmk {
     display: flex;
