@@ -48,6 +48,8 @@ let blockPlayerInput = false;
 
 let blockHumanInput = false;
 
+let roundCount = 0;
+
 const menu = document.getElementById("container-menu-fmk");
 const menuTextWinner = document.getElementById("menu-text-winner");
 
@@ -66,6 +68,9 @@ function play(inputPlayer, inputMove) {
     // Chack if is the flower without owner
     if (inputMove.status === null) {
 
+        ++roundCount
+
+        // console.log(`Round: ${roundCount}; Player: ${inputPlayer};`)
         
         // Check the player
         switch (inputPlayer) {
@@ -77,7 +82,6 @@ function play(inputPlayer, inputMove) {
                     // Set the new owner of the flower
                     inputMove.status = inputPlayer;
                     flowerReColor(inputMove, "red");
-                    console.log(winChecker());
 
                     winChecker();
 
@@ -98,14 +102,13 @@ function play(inputPlayer, inputMove) {
                         // Set the new owner of the flower
                         inputMove.status = inputPlayer;
                         flowerReColor(inputMove, "white");
-                        console.log(winChecker());
 
                         // Unblock human
                         blockHumanInput = false;
 
                         clearInterval(botCooldown);
 
-                    }, 500)
+                    }, 300)
 
                     winChecker();
                 }
@@ -124,6 +127,7 @@ function play(inputPlayer, inputMove) {
 
 /******************** BOT FUNCTION ********************/
 
+// Yeah the bot is pretty stupid hehe
 function bot() {
 
     function botRandom() {
@@ -195,9 +199,25 @@ function bot() {
         }
     }
 
-    // I is set to prevent of infinity loop. If the random output will be false, it well repeat the cycle again.
-    for (let x = null, i = 0; x !== true && i <= 100; ++i) {
-        x = botRandom();
+    if (roundCount === 1) {
+
+        // For good game opening
+        if (flower.id5.status === null) {
+            
+            play("bot", flower.id5);
+
+        } else if (flower.id3.status === null) {
+            
+            play("bot", flower.id3);
+
+        }
+
+    } else {
+
+        // I is set to prevent of infinity loop. If the random output will be false, it well repeat the cycle again.
+        for (let x = null, i = 0; x !== true && i <= 100; ++i) {
+            x = botRandom();
+        }
     }
 }
 
@@ -350,7 +370,7 @@ function endSequence(inputWinner) {
                 
                 // Interval stopper
                 if (i >= inputText.length) {
-                    clearInterval(intervalAnimation);
+                    clearInterval(intervalAnimation);    
                 }
 
                 // Slicing text by count of interval
@@ -383,6 +403,8 @@ function resetGame() {
 
     blockHumanInput = false;
 
+    roundCount = 0;
+
     winner = null;
 
     menuTextWinner.innerHTML = "...";
@@ -414,7 +436,8 @@ function resetGame() {
     flower.id7.html.src = "../assets/game-assets/flower7.svg"
     flower.id8.html.src = "../assets/game-assets/flower8.svg"
     flower.id9.html.src = "../assets/game-assets/flower9.svg"
-    console.log("game reset");
+    
+    // console.log("Game reset");
 
     menu.style.display = "none";
 

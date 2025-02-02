@@ -230,14 +230,19 @@ a {
     cursor: pointer;
     background: var(--white);
     height: 100%;
+    background-position: 0 100%;
     width: 100%;
 }
 
-.container-menu-fmk .menu-btn button:active {
-    background: linear-gradient(var(--transWhite) ,var(--white));
+.container-menu-fmk .menu-btn button:hover {
     height: 100%;
     width: 100%;
+    background: linear-gradient(180deg, var(--transWhite) 0, var(--white) 50%) 0 0 / 100% 200% no-repeat;
+    transition: 300ms;
 }
+
+/******************** RESPONSIVE STUFF ********************/
+
 
 @media screen and (max-width: 800px) {
 
