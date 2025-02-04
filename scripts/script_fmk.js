@@ -59,6 +59,12 @@ function flowerReColor(inputFlowerId, inputColor) {
 
     // Take the default flower and edit the directory of the image
     inputFlowerId.html.src = inputFlowerId.html.src.slice(0, -4) + "_" + inputColor + inputFlowerId.html.src.slice(-4);
+
+    // White flowers flip color for white mode
+    if (inputColor === "white") {
+
+        inputFlowerId.html.className = "lightmode-invert";
+    }
 }
 
 /******************** PLAY FUNCTION ********************/
@@ -363,6 +369,8 @@ function endSequence(inputWinner) {
         
         let cooldownAnimation =  setInterval(() => {
 
+            menuTextWinner.style.opacity = "1";
+
             let intervalAnimation =  setInterval(() => {
 
                 // Add one number to countiog of intervals
@@ -408,6 +416,7 @@ function resetGame() {
     winner = null;
 
     menuTextWinner.innerHTML = "...";
+    menuTextWinner.style.opacity = "0";
 
     /* 
         Yeah, I know, it's stupid solution - I'm too lazy solve the problem
@@ -436,6 +445,18 @@ function resetGame() {
     flower.id7.html.src = "../assets/game-assets/flower7.svg"
     flower.id8.html.src = "../assets/game-assets/flower8.svg"
     flower.id9.html.src = "../assets/game-assets/flower9.svg"
+    
+    // Invert color reset (for white mode)
+    flower.id1.html.className = "";
+    flower.id2.html.className = "";
+    flower.id3.html.className = "";
+    flower.id4.html.className = "";
+    flower.id5.html.className = "";
+    flower.id6.html.className = "";
+    flower.id7.html.className = "";
+    flower.id8.html.className = "";
+    flower.id9.html.className = "";
+
     
     // console.log("Game reset");
 

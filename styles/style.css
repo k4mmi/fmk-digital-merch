@@ -19,6 +19,24 @@
     --animation-duration-longer: 1000ms;
 }
 
+
+/********** DARK MODE **********/
+@media (prefers-color-scheme: light) {
+
+    :root{
+        --black: #fff;
+        --transBlack: #fffa;
+        --white: #000;
+        --transWhite: #000a;
+    }
+
+    .lightmode-invert {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+    
+}
+
+
 /******************** FONTS ********************/
 
 /* Source Code Pro */
@@ -96,6 +114,10 @@ a {
     text-underline-position: from-font;
 }
 
+a:hover {
+    color: var(--specialColor);
+}
+
 .source-code {
     text-align: center;
 }
@@ -137,6 +159,7 @@ a {
     text-decoration: none;
     padding: 20px;
     display: flex;
+    background: #000; /* Keep it black (#000), because background of images is black. Don't change it. */
     border-radius: var(--corner-radius);
     color: var(--black);
     border: solid var(--borderWidth) var(--white);
@@ -189,11 +212,11 @@ a {
     0% {
         transform: scale(0.5);
     }
-
+    
     100% {
         transform: scale(1);
     }
-
+    
 }
 
 /********** CONTAINER **********/
