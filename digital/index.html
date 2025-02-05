@@ -3,19 +3,19 @@
 <head>
 
     <!-- Basic SEO stuff and other stuff -->
-    <title>Digitál | REPLACEME</title>
+    <title>Digitál | Flower clicker</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="REPLACEME">
+    <meta name="keywords" content="mini-game, minihra, utb, add, digitál, flower clicker">
     <meta name="author" content="k4mmi">
-    <meta name="description" content="REPLACEME">
+    <meta name="description" content="Zahrajte si unikátní flower clicker s digitální květinou!">
     <meta name="theme-color" content="#E73937">
 
     <!-- Open Graph Stuff -->
     <meta property="og:type" content="game">
     <meta property="og:site_name" content="FMK MERCH Koncept">
-    <meta property="og:title" content="FMK MERCH | REPLACEME">
-    <meta property="og:description" content="REPLACEME">
+    <meta property="og:title" content="FMK MERCH | Flower clicker">
+    <meta property="og:description" content="Zahrajte si unikátní flower clicker s digitální květinou!">
     <meta property="og:image" content="https://k4mmi.github.io/fmk-digital-merch/assets/pictures/banner-og-digital.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -23,27 +23,66 @@
 
     <!-- Twitter Stuff -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FMK MERCH | REPLACEME">
-    <meta name="twitter:description" content="REPLACEME">
+    <meta name="twitter:title" content="FMK MERCH | Flower clicker">
+    <meta name="twitter:description" content="Zahrajte si unikátní flower clicker s digitální květinou!">
     <meta name="twitter:image" content="https://k4mmi.github.io/fmk-digital-merch/assets/pictures/banner-og-digital.jpg">
 
     <!-- Links -->
     <link rel="shortcut icon" href="../assets/favicons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- For simle changing of src by JS -->
+    <script>const directoryModifier = "../";</script>
+
 </head>
 <body>
+
+    <div class="color-mode-setting">
+
+        <button onclick="colorModeChanger('swap')">
+            <img id="color-theme-icon" src="../assets/icons/moon.svg" alt="Dark/Light mode" ondragstart="return false;">
+        </button>
+        
+    </div>
 
     <div class="container">
 
         <div class="container-digital">
 
-            <button class="digital-flower"><img src="../assets/game-assets/digital-flower.svg" ondragstart="return false;"></button>
+            <div class="point-count">
+                <span id="point-count">...</span>
+            </div>
+
+            <div class="scale-animation-digital">
+
+                <button class="digital-flower" onclick="pointIncrease('modifier')">
+
+                    <img id="digital-flower" src="../assets/game-assets/digital-flower.png" ondragstart="return false;">
+
+                </button>
+
+            </div>
+
+            <div class="point-shop">
+
+                <button class="point-shop-item" onclick="purchaseItem('multiplier')">
+                    <span>Násobič</span>
+                    <span id="multiplier-cost">100</span>
+                </button>
+
+                <button class="point-shop-item" onclick="purchaseItem('autoclicker')">
+                    <span>Autoclicker</span>
+                    <span id="autoclicker-cost">500</span>
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
     <!-- Script -->
+    <script src="../scripts/script.js"></script>
     <script src="../scripts/script_digital.js"></script>
 
 </body>

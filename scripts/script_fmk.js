@@ -58,7 +58,7 @@ const menuTextWinner = document.getElementById("menu-text-winner");
 function flowerReColor(inputFlowerId, inputColor) {
 
     // Take the default flower and edit the directory of the image
-    inputFlowerId.html.src = inputFlowerId.html.src.slice(0, -4) + "_" + inputColor + inputFlowerId.html.src.slice(-4);
+    inputFlowerId.html.src = inputFlowerId.html.src.slice(0, -4) + "_" + inputColor + ".svg"
 
     // White flowers flip color for white mode
     if (inputColor === "white") {
@@ -83,6 +83,7 @@ function play(inputPlayer, inputMove) {
             
             case "human":
                 
+                // Check block
                 if (blockPlayerInput === false && blockHumanInput === false) {
                     
                     // Set the new owner of the flower
@@ -98,6 +99,7 @@ function play(inputPlayer, inputMove) {
 
             case "bot":
 
+                // Check block
                 if (blockPlayerInput === false) {
 
                     // Block the player and wait for bot
@@ -127,7 +129,6 @@ function play(inputPlayer, inputMove) {
 
         }
     }
-
 
 }
 
@@ -436,15 +437,15 @@ function resetGame() {
     flower.id9.status = null;
 
     // Reset flower images
-    flower.id1.html.src = "../assets/game-assets/flower1.svg"
-    flower.id2.html.src = "../assets/game-assets/flower2.svg"
-    flower.id3.html.src = "../assets/game-assets/flower3.svg"
-    flower.id4.html.src = "../assets/game-assets/flower4.svg"
-    flower.id5.html.src = "../assets/game-assets/flower5.svg"
-    flower.id6.html.src = "../assets/game-assets/flower6.svg"
-    flower.id7.html.src = "../assets/game-assets/flower7.svg"
-    flower.id8.html.src = "../assets/game-assets/flower8.svg"
-    flower.id9.html.src = "../assets/game-assets/flower9.svg"
+    flower.id1.html.src = "../assets/game-assets/flower1.png"
+    flower.id2.html.src = "../assets/game-assets/flower2.png"
+    flower.id3.html.src = "../assets/game-assets/flower3.png"
+    flower.id4.html.src = "../assets/game-assets/flower4.png"
+    flower.id5.html.src = "../assets/game-assets/flower5.png"
+    flower.id6.html.src = "../assets/game-assets/flower6.png"
+    flower.id7.html.src = "../assets/game-assets/flower7.png"
+    flower.id8.html.src = "../assets/game-assets/flower8.png"
+    flower.id9.html.src = "../assets/game-assets/flower9.png"
     
     // Invert color reset (for white mode)
     flower.id1.html.className = "";
@@ -456,7 +457,6 @@ function resetGame() {
     flower.id7.html.className = "";
     flower.id8.html.className = "";
     flower.id9.html.className = "";
-
     
     // console.log("Game reset");
 

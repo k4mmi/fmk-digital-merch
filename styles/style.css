@@ -12,30 +12,35 @@
     --spaceSmall: 25px;
     --spaceSmaller: 10px;
     --spaceSmallest: 5px;
-    --borderWidth: 5px;
+    --borderWidth: 2.5px;
     --corner-radius: 50px;
     --animation-duration: 200ms;
     --animation-duration-long: 600ms;
     --animation-duration-longer: 1000ms;
+    --backBlur: blur(10px);
 }
 
+/********** LIGHT MODE **********/
+
+.light-mode, .light-mode * {
+    --black: #fff;
+    --transBlack: #fffa;
+    --white: #000;
+    --transWhite: #000a;
+}
+
+.light-mode .lightmode-invert {
+    filter: invert(100%) hue-rotate(180deg);
+}
 
 /********** DARK MODE **********/
-@media (prefers-color-scheme: light) {
 
-    :root{
-        --black: #fff;
-        --transBlack: #fffa;
-        --white: #000;
-        --transWhite: #000a;
-    }
-
-    .lightmode-invert {
-        filter: invert(100%) hue-rotate(180deg);
-    }
-    
+.dark-mode, .dark-mode * {
+    --black: #000;
+    --transBlack: #000a;
+    --white: #fff;
+    --transWhite: #fffa;
 }
-
 
 /******************** FONTS ********************/
 
@@ -135,6 +140,34 @@ a:hover {
 
 /********** CONTAINER **********/
 
+/***** Color mode settings *****/
+
+.color-mode-setting {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    bottom: var(--spaceSmaller);
+    right: var(--spaceSmaller);
+    border-radius: var(--corner-radius);
+    border: solid var(--white) 2px;
+    z-index: 600;
+    opacity: 0.3;
+}
+
+.color-mode-setting:hover {
+    opacity: 1;
+}
+
+.color-mode-setting button {
+    width: 100%;
+    cursor: pointer;
+}
+
+.color-mode-setting button:active img {
+    transition: var(--animation-duration);
+    transform: rotate(360deg);
+}
+
 /***** Index *****/
 
 .container-index {
@@ -193,6 +226,10 @@ a:hover {
     cursor: pointer;
 }
 
+.container-fmk .game-flower img{
+    width: 100%;
+}
+
 .container-fmk .game-flower {
     animation: flowers;
     animation-duration: 500ms;
@@ -248,7 +285,7 @@ a:hover {
     overflow: hidden;
     border-radius: var(--corner-radius);
     background: var(--transBlack);
-    backdrop-filter: blur(10px);
+    backdrop-filter: var(--backBlur);
     top: 0;
     width: 100%;
     border: solid var(--white) var(--borderWidth);
@@ -331,24 +368,111 @@ a:hover {
 
 .container-digital {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     max-width: 800px;
     width: 100%;
     height: min-content;
     align-items: center;
+    max-height: 800px;
+    height: 100%;
     padding: 0 var(--spaceSmall);
     margin-bottom: var(--spaceSmall);
+    overflow: hidden;
+    gap: var(--spaceBig);
+}
+
+.scale-animation-digital {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    animation-name: scale;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: steps(10);
+    animation-delay: 400ms;
+    opacity: 0;
+}
+
+@keyframes scale {
+    0% {transform: scale(1.2); opacity: 1;}
+    100% {transform: scale(1); opacity: 1;}
 }
 
 .container-digital .digital-flower {
-    width: 100%;
+    max-height: 500px;
     animation-name: rotate;
     animation-duration: 10000ms;
     animation-iteration-count: infinite;
     animation-timing-function: steps(50);
+    cursor: pointer;
 }
 
 @keyframes rotate {
     0% {transform: rotate(0);}
     100% {transform: rotate(360deg);}
+}
+
+.container-digital .digital-flower img {
+    width: 60vw;
+    max-width: 400px;
+}
+
+.container-digital .digital-flower img:hover {
+    transform: scale(1.05);
+}
+
+.container-digital .digital-flower  img:active {
+    transform: scale(0.9);
+}
+
+
+.point-count {
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: lowercase;
+}
+
+.point-shop {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+}
+
+.point-shop-item {
+    /* background: pink; */
+    height: 50px;
+    max-width: 300px;
+    width: 100%;
+    border: solid var(--white);
+    border-radius: var(--corner-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    backdrop-filter: var(--backBlur);
+}
+
+.point-shop-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.point-shop-item:active {
+    transform: scale(0.95);
+}
+
+.point-shop-item span{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

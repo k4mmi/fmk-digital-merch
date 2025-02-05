@@ -32,8 +32,20 @@
     <link rel="shortcut icon" href="./assets/favicons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
 
+    <!-- For simle changing of src by JS -->
+    <script>const directoryModifier = "./";</script>
+
 </head>
 <body>
+
+    <div class="color-mode-setting">
+
+        <button onclick="colorModeChanger('swap')">
+            <img id="color-theme-icon" src="../assets/icons/moon.svg" alt="Dark/Light mode" ondragstart="return false;">
+        </button>
+        
+    </div>
+
     <div class="container-index">
 
         <h1>FMK MERCH</h1>
@@ -50,5 +62,9 @@
         <a href="https://github.com/k4mmi/fmk-digital-merch">source code</a>
 
     </div>
+
+    <!-- Script -->
+    <script src="../scripts/script.js"></script>
+
 </body>
 </html>

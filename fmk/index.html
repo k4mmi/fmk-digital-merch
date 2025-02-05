@@ -30,23 +30,36 @@
     <!-- Links -->
     <link rel="shortcut icon" href="../assets/favicons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- For simle changing of src by JS -->
+    <script>const directoryModifier = "../";</script>
+    
 </head>
 <body>
+
+    <div class="color-mode-setting">
+
+        <button onclick="colorModeChanger('swap')">
+            <img id="color-theme-icon" src="../assets/icons/moon.svg" alt="Dark/Light mode" ondragstart="return false;">
+        </button>
+        
+    </div>
+
 
     <div class="container">
 
         <div class="container-fmk">
 
             <!-- Game flower btns -->
-            <button class="game-flower" onclick="play('human', flower.id1)"><img id="flower1" src="../assets/game-assets/flower1.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id2)"><img id="flower2" src="../assets/game-assets/flower2.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id3)"><img id="flower3" src="../assets/game-assets/flower3.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id4)"><img id="flower4" src="../assets/game-assets/flower4.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id5)"><img id="flower5" src="../assets/game-assets/flower5.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id6)"><img id="flower6" src="../assets/game-assets/flower6.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id7)"><img id="flower7" src="../assets/game-assets/flower7.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id8)"><img id="flower8" src="../assets/game-assets/flower8.svg" ondragstart="return false;"></button>
-            <button class="game-flower" onclick="play('human', flower.id9)"><img id="flower9" src="../assets/game-assets/flower9.svg" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id1)"><img id="flower1" src="../assets/game-assets/flower1.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id2)"><img id="flower2" src="../assets/game-assets/flower2.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id3)"><img id="flower3" src="../assets/game-assets/flower3.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id4)"><img id="flower4" src="../assets/game-assets/flower4.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id5)"><img id="flower5" src="../assets/game-assets/flower5.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id6)"><img id="flower6" src="../assets/game-assets/flower6.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id7)"><img id="flower7" src="../assets/game-assets/flower7.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id8)"><img id="flower8" src="../assets/game-assets/flower8.png" ondragstart="return false;"></button>
+            <button class="game-flower" onclick="play('human', flower.id9)"><img id="flower9" src="../assets/game-assets/flower9.png" ondragstart="return false;"></button>
 
         </div>
 
@@ -102,7 +115,8 @@
 
     </noscript>
 
-    <!-- Script -->
+    <!-- Game script -->
+    <script src="../scripts/script.js"></script>
     <script src="../scripts/script_fmk.js"></script>
 
 </body>
