@@ -50,6 +50,8 @@ let blockHumanInput = false;
 
 let roundCount = 0;
 
+let autoChacker
+
 const menu = document.getElementById("container-menu-fmk");
 const menuTextWinner = document.getElementById("menu-text-winner");
 
@@ -90,8 +92,6 @@ function play(inputPlayer, inputMove) {
                     inputMove.status = inputPlayer;
                     flowerReColor(inputMove, "red");
 
-                    winChecker();
-
                     // Bot will play after human
                     bot();
                 }
@@ -117,18 +117,18 @@ function play(inputPlayer, inputMove) {
                         clearInterval(botCooldown);
 
                     }, 300)
-
-                    winChecker();
                 }
                 break
-        
-            default:
-                console.log("ERROR: illegal player"); 
-                inputMove.status = null;
-                break
-
-        }
-    }
+                
+                default:
+                    console.log("ERROR: illegal player"); 
+                    inputMove.status = null;
+                    break
+                    
+                }
+            }
+            
+            winChecker();
 
 }
 
@@ -226,6 +226,7 @@ function bot() {
             x = botRandom();
         }
     }
+
 }
 
 /******************** WIN CHACKER ********************/
@@ -344,6 +345,11 @@ function winChecker() {
     
 }
 
+function permanentWinChecker() {
+
+    autoChacker = setInterval(winChecker, 1000);
+}
+
 // Show the menu
 function endSequence(inputWinner) {
 
@@ -392,9 +398,12 @@ function endSequence(inputWinner) {
 
             clearInterval(cooldownAnimation);
 
-        }, 1500)
+        }, 1500);
 
     }
+
+    // Disable autochacker
+    clearInterval(autoChacker);
 
 }
 
@@ -462,4 +471,10 @@ function resetGame() {
 
     menu.style.display = "none";
 
+    permanentWinChecker();
+
 }
+
+/******************** ON LOAD ********************/
+
+permanentWinChecker();
