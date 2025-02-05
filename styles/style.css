@@ -178,6 +178,10 @@ a:hover {
     height: 100%;
     gap: var(--spaceSmall);
     padding: 0 var(--spaceSmall);
+    animation-name: menu;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: steps(12);
 }
 
 .container-index ul{
@@ -190,12 +194,13 @@ a:hover {
 
 .container-index .btn{
     text-decoration: none;
-    padding: 20px;
+
     display: flex;
     background: #000; /* Keep it black (#000), because background of images is black. Don't change it. */
     border-radius: var(--corner-radius);
     color: var(--black);
     border: solid var(--borderWidth) var(--white);
+    overflow: hidden;
 }
 
 .container-index .btn:hover{
