@@ -67,7 +67,7 @@ function localStorageLoad() {
         autoclickerCost = 500; // Default starting cost
 
     } else {
-        console.log("im here, lvl")
+        
         autoclickerLevel = Number(autoclickerLevel);
         autoclicker = Number(autoclicker);
         autoclickerCost = Number(autoclickerCost);
