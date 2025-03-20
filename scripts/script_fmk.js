@@ -357,7 +357,7 @@ function endSequence(inputWinner) {
 
     switch (inputWinner) {
         case "human":
-            textAnimation("Vítěztví")
+            textAnimation("Vítězství")
             break;
         case "bot":
             textAnimation("Prohra")
